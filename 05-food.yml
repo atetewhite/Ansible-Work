@@ -12,5 +12,6 @@
   - name: Host Code
     git:
       repo: https://github.com/CeeyIT-Solutions/food3.git
-      dest: /var/www/html      
+      dest: /var/www/html  
+      force: yes    
 ...
