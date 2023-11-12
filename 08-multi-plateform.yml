@@ -1,0 +1,43 @@
+---
+- name: Install HTTP server
+  hosts: g1
+  become: yes
+
+  tasks:
+  - name: Install HTTPD
+    yum:
+      name: httpd
+      state: present
+    when: ansible_distribution == "CentOS"
+
+  - name: Start Httpd
+    service:
+      name: httpd
+      state: started
+    when: ansible_distribution == "CentOS"  
+
+  - name: Enable Httpd
+    service:
+      name: httpd
+      enabled: yes 
+    when: ansible_distribution == "CentOS"  
+
+- name: Install HTTPD
+    yum:
+      name: httpd
+      state: present 
+    when: ansible_distribution == "CentOS"  
+
+  - name: Start Httpd
+    service:
+      name: httpd
+      state: started 
+    when: ansible_distribution == "CentOS"
+
+  - name: Enable Httpd
+    service:
+      name: httpd
+      enabled: yes
+                        
+
+ansible_distribution
